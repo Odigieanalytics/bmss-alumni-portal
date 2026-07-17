@@ -1,0 +1,13 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400&family=Hanken+Grotesk:wght@400;500;600;700&display=swap');
+
+body {
+  background: #070D1D;
+  color: #F6F1E7;
+  font-family: 'Hanken Grotesk', system-ui, sans-serif;
+}
+
+.font-display { font-family: 'Fraunces', serif; }

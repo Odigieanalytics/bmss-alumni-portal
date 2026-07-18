@@ -265,31 +265,36 @@ function LeadershipSection() {
       name: "Lawrence Odigie", 
       title: "President",
       bgGradient: "from-amber-600 to-amber-800",
-      imageUrl: "/images/leadership/lawrence.png"
+      imageUrl: "https://raw.githubusercontent.com/Odigieanalytics/bmss-alumni-portal/main/public/images/leadership/lawrence.png",
+      localUrl: "/images/leadership/lawrence.png"
     },
     { 
       name: "Osazee Idehen", 
       title: "Vice President",
       bgGradient: "from-orange-600 to-orange-800",
-      imageUrl: "/images/leadership/osazee.jpeg"
+      imageUrl: "https://raw.githubusercontent.com/Odigieanalytics/bmss-alumni-portal/main/public/images/leadership/osazee.jpeg",
+      localUrl: "/images/leadership/osazee.jpeg"
     },
     { 
       name: "Fredrick Ohai", 
       title: "General Secretary",
       bgGradient: "from-yellow-600 to-yellow-800",
-      imageUrl: "/images/leadership/fredrick.jpeg"
+      imageUrl: "https://raw.githubusercontent.com/Odigieanalytics/bmss-alumni-portal/main/public/images/leadership/fredrick.jpeg",
+      localUrl: "/images/leadership/fredrick.jpeg"
     },
     { 
       name: "Kenneth Osemwegie-Ero", 
       title: "Financial Secretary",
       bgGradient: "from-lime-600 to-lime-800",
-      imageUrl: "/images/leadership/kenneth.jpeg"
+      imageUrl: "https://raw.githubusercontent.com/Odigieanalytics/bmss-alumni-portal/main/public/images/leadership/kenneth.jpeg",
+      localUrl: "/images/leadership/kenneth.jpeg"
     },
     { 
       name: "Uwa Igunbor", 
       title: "Welfare/Publicity Secretary",
       bgGradient: "from-emerald-600 to-emerald-800",
-      imageUrl: "/images/leadership/uwa.jpeg"
+      imageUrl: "https://raw.githubusercontent.com/Odigieanalytics/bmss-alumni-portal/main/public/images/leadership/uwa.jpeg",
+      localUrl: "/images/leadership/uwa.jpeg"
     }
   ];
 
@@ -319,11 +324,16 @@ function LeadershipSection() {
                   alt={exec.name}
                   className="w-full h-full object-cover"
                   onError={(e) => {
-                    // Fallback to initials if image fails to load
-                    e.currentTarget.style.display = 'none';
-                    const fallback = e.currentTarget.parentElement?.querySelector('[data-fallback]');
-                    if (fallback) {
-                      fallback.style.display = 'flex';
+                    // Try local URL if GitHub fails
+                    if (e.currentTarget.src !== exec.localUrl) {
+                      e.currentTarget.src = exec.localUrl;
+                    } else {
+                      // Fallback to initials if both URLs fail
+                      e.currentTarget.style.display = 'none';
+                      const fallback = e.currentTarget.parentElement?.querySelector('[data-fallback]');
+                      if (fallback) {
+                        fallback.style.display = 'flex';
+                      }
                     }
                   }}
                 />

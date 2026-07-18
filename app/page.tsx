@@ -312,7 +312,7 @@ function LeadershipSection() {
         <div className="grid md:grid-cols-5 gap-6">
           {executives.map((exec, idx) => (
             <div key={idx} className="text-center">
-              <div className={`w-32 h-32 mx-auto mb-6 rounded-full border-2 border-gold flex items-center justify-center overflow-hidden bg-gradient-to-br ${exec.bgGradient}`}>
+              <div className={`w-32 h-32 mx-auto mb-6 rounded-full border-2 border-gold flex items-center justify-center overflow-hidden bg-gradient-to-br ${exec.bgGradient} relative`}>
                 <img 
                   src={exec.imageUrl} 
                   alt={exec.name}
@@ -320,12 +320,13 @@ function LeadershipSection() {
                   onError={(e) => {
                     // Fallback to initials if image fails to load
                     e.currentTarget.style.display = 'none';
-                    if (e.currentTarget.nextElementSibling) {
-                      e.currentTarget.nextElementSibling.style.display = 'flex';
+                    const fallback = e.currentTarget.parentElement?.querySelector('[data-fallback]');
+                    if (fallback) {
+                      fallback.style.display = 'flex';
                     }
                   }}
                 />
-                <span className="text-ivory drop-shadow-lg text-6xl font-bold absolute hidden">
+                <span className="text-ivory drop-shadow-lg text-6xl font-bold absolute inset-0 hidden justify-center items-center" data-fallback>
                   {getInitials(exec.name)}
                 </span>
               </div>

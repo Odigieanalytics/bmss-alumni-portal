@@ -252,11 +252,203 @@ function StoriesSection() {
   );
 }
 
+// ============ LEADERSHIP SECTION ============
+function LeadershipSection() {
+  const executives = [
+    { name: "Lawrence Odigie", title: "President", emoji: "👑" },
+    { name: "Osazee Idehen", title: "Vice President", emoji: "🎖️" },
+    { name: "Fredrick Ohai", title: "General Secretary", emoji: "📋" },
+    { name: "Kenneth Osemwegie-Ero", title: "Financial Secretary", emoji: "💰" },
+    { name: "Uwa Igunbor", title: "Welfare/Publicity Secretary", emoji: "🤝" }
+  ];
+
+  return (
+    <section id="leadership" className="py-20 sm:py-32 bg-navy-950">
+      <div className="max-w-6xl mx-auto px-6">
+        <div className="text-center mb-16">
+          <div className="inline-flex items-center gap-3 mb-6">
+            <div className="w-8 h-px bg-gradient-to-r from-transparent to-gold"></div>
+            <span className="text-xs tracking-widest uppercase text-gold font-semibold">Leadership</span>
+          </div>
+          <h2 className="font-display text-5xl md:text-6xl font-medium mb-4">
+            The brothers who <em className="italic text-gold not-italic">keep the flame</em>
+          </h2>
+          <p className="text-ivory-70 max-w-2xl mx-auto text-lg">
+            An executive council of volunteers stewarding the treasury, the welfare fund, and the traditions that hold us together.
+          </p>
+        </div>
+
+        {/* Executives grid */}
+        <div className="grid md:grid-cols-5 gap-6">
+          {executives.map((exec, idx) => (
+            <div key={idx} className="text-center">
+              <div className="w-32 h-32 mx-auto mb-6 rounded-full bg-gradient-to-br from-gold-25 to-gold-12 border-2 border-gold flex items-center justify-center text-6xl">
+                {exec.emoji}
+              </div>
+              <h3 className="font-display text-lg font-medium mb-1">{exec.name}</h3>
+              <p className="text-gold text-xs font-semibold tracking-widest uppercase">{exec.title}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
+// ============ GATHERINGS SECTION ============
+function GatheringsSection() {
+  return (
+    <section id="gatherings" className="py-20 sm:py-32 bg-gradient-to-b from-navy-900 to-navy-950">
+      <div className="max-w-6xl mx-auto px-6">
+        <div className="mb-16">
+          <div className="inline-flex items-center gap-3 mb-6">
+            <div className="w-8 h-px bg-gradient-to-r from-transparent to-gold"></div>
+            <span className="text-xs tracking-widest uppercase text-gold font-semibold">Gatherings</span>
+          </div>
+          <h2 className="font-display text-5xl md:text-6xl font-medium mb-4">
+            Where the brotherhood <em className="italic text-gold not-italic">meets</em>
+          </h2>
+        </div>
+
+        {/* Featured reunion card */}
+        <div className="bg-gradient-to-br from-navy-850 to-navy-900 rounded-3xl border border-gold-25 p-8 sm:p-12 overflow-hidden relative">
+          {/* Accent background */}
+          <div className="absolute top-0 right-0 w-64 h-64 bg-gradient-to-br from-gold/5 to-transparent rounded-full -mr-32 -mt-32"></div>
+          
+          <div className="relative z-10 grid md:grid-cols-2 gap-12">
+            <div>
+              <div className="inline-block px-4 py-2 bg-gold text-navy-950 text-xs font-bold tracking-widest rounded-full mb-6">
+                FEATURED · 9TH ANNUAL REUNION
+              </div>
+              
+              <h3 className="font-display text-4xl md:text-5xl font-medium mb-6">
+                Chicago <em className="italic text-gold not-italic">2026</em>, three days of brotherhood
+              </h3>
+
+              <div className="space-y-3 mb-8 text-ivory-70">
+                <div className="flex items-center gap-3">
+                  <span className="text-gold font-display text-xl">◆</span>
+                  <span>July 23-25, 2026</span>
+                </div>
+                <div className="flex items-center gap-3">
+                  <span className="text-gold font-display text-xl">◆</span>
+                  <span>Chicago, Illinois</span>
+                </div>
+                <div className="flex items-center gap-3">
+                  <span className="text-gold font-display text-xl">◆</span>
+                  <span>Gala · Homecoming · Family Day</span>
+                </div>
+              </div>
+
+              <p className="text-ivory-70 mb-8">
+                Reunion number nine of a tradition born in Atlanta in 2017. A welcome night, football match, AGM and a blue-and-white gala. Brothers are flying in from across the US and Canada.
+              </p>
+
+              {/* Countdown */}
+              <div className="flex gap-4 mb-8">
+                <div className="bg-navy-900 rounded-xl p-4 text-center border border-gold-25">
+                  <div className="font-display text-3xl text-gold font-medium">5</div>
+                  <div className="text-xs text-ivory-50 uppercase tracking-widest">Days</div>
+                </div>
+                <div className="bg-navy-900 rounded-xl p-4 text-center border border-gold-25">
+                  <div className="font-display text-3xl text-gold font-medium">13</div>
+                  <div className="text-xs text-ivory-50 uppercase tracking-widest">Hours</div>
+                </div>
+                <div className="bg-navy-900 rounded-xl p-4 text-center border border-gold-25">
+                  <div className="font-display text-3xl text-gold font-medium">6</div>
+                  <div className="text-xs text-ivory-50 uppercase tracking-widest">Mins</div>
+                </div>
+              </div>
+
+              <button className="px-8 py-4 rounded-full bg-gold text-navy-950 font-semibold hover:shadow-lg hover:shadow-gold/40 transition-all hover:-translate-y-1">
+                Reserve My Seat →
+              </button>
+            </div>
+
+            <div className="flex items-center justify-center">
+              <div className="text-center">
+                <div className="font-display text-7xl md:text-8xl text-gold/30 font-medium mb-4">23–25</div>
+                <div className="text-xs tracking-widest uppercase text-ivory-50">July · Chicago</div>
+                <div className="mt-12 p-8 bg-navy-950 rounded-xl border border-gold-25">
+                  <div className="text-ivory-50 text-sm">Chicago Skyline Visualization</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+// ============ GALLERY SECTION ============
+function GallerySection() {
+  const galleryItems = [
+    { title: "Atlanta 2017", subtitle: "First Reunion", emoji: "📸" },
+    { title: "Houston 2018", subtitle: "Tradition Takes Root", emoji: "🎉" },
+    { title: "Jackson 2019", subtitle: "The Circle Widens", emoji: "📷" },
+    { title: "Toronto 2021", subtitle: "Border to Border", emoji: "🖼️" },
+    { title: "Miami 2023", subtitle: "Sunshine & Bonds", emoji: "🌅" },
+    { title: "Dallas 2024", subtitle: "Star City Brotherhood", emoji: "⭐" }
+  ];
+
+  return (
+    <section id="gallery" className="py-20 sm:py-32 bg-navy-950">
+      <div className="max-w-6xl mx-auto px-6">
+        <div className="text-center mb-16">
+          <div className="inline-flex items-center gap-3 mb-6">
+            <div className="w-8 h-px bg-gradient-to-r from-transparent to-gold"></div>
+            <span className="text-xs tracking-widest uppercase text-gold font-semibold">Our Moments</span>
+          </div>
+          <h2 className="font-display text-5xl md:text-6xl font-medium mb-4">
+            Captured across <em className="italic text-gold not-italic">nine reunions</em>
+          </h2>
+          <p className="text-ivory-70 max-w-2xl mx-auto text-lg">
+            From Atlanta to Dallas, through Houston, Toronto, Miami and beyond. Nine years of brotherhood in photographs.
+          </p>
+        </div>
+
+        {/* Gallery grid */}
+        <div className="grid md:grid-cols-3 gap-6">
+          {galleryItems.map((item, idx) => (
+            <div
+              key={idx}
+              className="group relative overflow-hidden rounded-2xl border border-ivory-10 hover:border-gold-25 transition-all cursor-pointer h-64"
+            >
+              {/* Background */}
+              <div className="absolute inset-0 bg-gradient-to-br from-navy-850 to-navy-900 group-hover:from-gold/10 transition-all"></div>
+              
+              {/* Content */}
+              <div className="relative z-10 h-full flex flex-col items-center justify-center text-center p-6">
+                <div className="text-5xl mb-4 group-hover:scale-110 transition-transform">{item.emoji}</div>
+                <h3 className="font-display text-2xl font-medium mb-2">{item.title}</h3>
+                <p className="text-gold text-sm font-semibold">{item.subtitle}</p>
+              </div>
+
+              {/* Hover overlay */}
+              <div className="absolute inset-0 bg-gradient-to-t from-gold/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
 // ============ CONSTITUTION/COVENANT SECTION ============
 function CovenantSection() {
+  const benefits = [
+    { amount: "$1,000", description: "Wedding or ordination gift", article: "Article V · Welfare" },
+    { amount: "$1,000", description: "Bereavement support, immediate family", article: "Article V · Welfare" },
+    { amount: "$2,000", description: "Support on the passing of a brother", article: "Article V · Welfare" },
+    { amount: "$50", description: "Birthday gift card, every brother, every year", article: "Article V · Welfare" },
+    { amount: "$500", description: "Emergency & hardship supplement, per approved request", article: "Article V · Hardship Fund" },
+    { amount: "₦1,000,000", description: "Pledged annually to BMSS Evboneka", article: "Article VI · School Support" }
+  ];
+
   return (
     <section id="covenant" className="py-20 sm:py-32 bg-navy-950">
-      <div className="max-w-4xl mx-auto px-6">
+      <div className="max-w-6xl mx-auto px-6">
         <div className="text-center mb-16">
           <div className="inline-flex items-center gap-3 mb-6">
             <div className="w-8 h-px bg-gradient-to-r from-transparent to-gold"></div>
@@ -273,37 +465,25 @@ function CovenantSection() {
         {/* Covenant card */}
         <div className="bg-gradient-to-br from-navy-850 to-navy-900 rounded-2xl border border-gold-25 p-8 sm:p-12 mb-12">
           <div className="text-6xl text-gold/20 mb-4 font-display">"</div>
-          <p className="text-ivory text-lg mb-6 leading-relaxed">
+          <p className="text-ivory text-lg mb-6 leading-relaxed italic font-display">
             We, the alumni of Boys Model Secondary School Evboneka residing in North America, united by our shared heritage and commitment to the growth of our alma mater and the welfare of our members…
           </p>
-          <div className="text-gold text-sm font-semibold mb-6">Preamble · The Constitution · Amendment III</div>
+          <div className="text-gold text-sm font-semibold mb-8">Preamble · The Constitution · Amendment III</div>
 
-          {/* Benefits list */}
-          <div className="space-y-4 mb-8">
-            <div className="flex gap-4 pb-4 border-b border-ivory-10">
-              <div className="font-display text-2xl text-gold font-medium">$1,000</div>
-              <div>
-                <div className="text-ivory font-medium">Wedding or ordination gift</div>
-                <div className="text-gold text-xs font-semibold">Article V · Welfare</div>
+          {/* Benefits grid */}
+          <div className="grid md:grid-cols-2 gap-6">
+            {benefits.map((benefit, idx) => (
+              <div key={idx} className="flex gap-4 pb-6 border-b border-ivory-10 last:border-0">
+                <div className="font-display text-2xl text-gold font-medium min-w-max">{benefit.amount}</div>
+                <div>
+                  <div className="text-ivory font-medium text-base">{benefit.description}</div>
+                  <div className="text-gold text-xs font-semibold mt-1">{benefit.article}</div>
+                </div>
               </div>
-            </div>
-            <div className="flex gap-4 pb-4 border-b border-ivory-10">
-              <div className="font-display text-2xl text-gold font-medium">$1,000</div>
-              <div>
-                <div className="text-ivory font-medium">Bereavement support, immediate family</div>
-                <div className="text-gold text-xs font-semibold">Article V · Welfare</div>
-              </div>
-            </div>
-            <div className="flex gap-4">
-              <div className="font-display text-2xl text-gold font-medium">$2,000</div>
-              <div>
-                <div className="text-ivory font-medium">Support on the passing of a brother</div>
-                <div className="text-gold text-xs font-semibold">Article V · Welfare</div>
-              </div>
-            </div>
+            ))}
           </div>
 
-          <div className="text-center">
+          <div className="text-center mt-12">
             <Link
               href="/portal/documents"
               className="inline-flex items-center gap-2 px-8 py-4 rounded-full border border-gold text-gold font-semibold hover:bg-gold hover:text-navy-950 transition-all"
@@ -407,6 +587,9 @@ export default function Home() {
       <CommunitySection />
       <TimelineSection />
       <StoriesSection />
+      <LeadershipSection />
+      <GatheringsSection />
+      <GallerySection />
       <CovenantSection />
       <FooterSection />
     </main>

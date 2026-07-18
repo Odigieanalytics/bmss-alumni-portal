@@ -1,5 +1,6 @@
 import Link from 'next/link';
 
+// Rebuild trigger for Vercel deployment
 // ============ NAV & HEADER ============
 function Navigation() {
   return (

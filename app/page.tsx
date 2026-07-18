@@ -322,11 +322,15 @@ function LeadershipSection() {
                 <img 
                   src={exec.imageUrl} 
                   alt={exec.name}
+                  data-local-url={exec.localUrl}
                   className="w-full h-full object-cover"
                   onError={(e) => {
+                    const currentUrl = e.currentTarget.src;
+                    const localUrl = e.currentTarget.getAttribute('data-local-url');
+                    
                     // Try local URL if GitHub fails
-                    if (e.currentTarget.src !== exec.localUrl) {
-                      e.currentTarget.src = exec.localUrl;
+                    if (localUrl && currentUrl !== localUrl) {
+                      e.currentTarget.src = localUrl;
                     } else {
                       // Fallback to initials if both URLs fail
                       e.currentTarget.style.display = 'none';

@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import Image from 'next/image';
 
 // Rebuild trigger for Vercel deployment
 // ============ NAV & HEADER ============
@@ -314,14 +315,17 @@ function LeadershipSection() {
           {executives.map((exec, idx) => (
             <div key={idx} className="text-center">
               <div className={`w-32 h-32 mx-auto mb-6 rounded-full border-2 border-gold flex items-center justify-center overflow-hidden bg-gradient-to-br ${exec.bgGradient} relative`}>
-                <img 
+                <Image 
                   src={exec.imageUrl} 
                   alt={exec.name}
+                  width={128}
+                  height={128}
                   className="w-full h-full object-cover"
                   onError={(e) => {
                     // Image failed to load, show initials fallback
-                    e.currentTarget.style.display = 'none';
-                    const fallback = e.currentTarget.parentElement?.querySelector('[data-fallback]');
+                    const img = e.target as HTMLImageElement;
+                    img.style.display = 'none';
+                    const fallback = img.parentElement?.querySelector('[data-fallback]');
                     if (fallback) {
                       fallback.style.display = 'flex';
                     }

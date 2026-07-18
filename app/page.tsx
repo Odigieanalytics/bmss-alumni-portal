@@ -264,31 +264,31 @@ function LeadershipSection() {
       name: "Lawrence Odigie", 
       title: "President",
       bgGradient: "from-amber-600 to-amber-800",
-      imageUrl: "/images/leadership/lawrence.jpg"
+      imageUrl: "/images/leadership/lawrence.png"
     },
     { 
       name: "Osazee Idehen", 
       title: "Vice President",
       bgGradient: "from-orange-600 to-orange-800",
-      imageUrl: "/images/leadership/osazee.jpg"
+      imageUrl: "/images/leadership/osazee.jpeg"
     },
     { 
       name: "Fredrick Ohai", 
       title: "General Secretary",
       bgGradient: "from-yellow-600 to-yellow-800",
-      imageUrl: "/images/leadership/fredrick.jpg"
+      imageUrl: "/images/leadership/fredrick.jpeg"
     },
     { 
       name: "Kenneth Osemwegie-Ero", 
       title: "Financial Secretary",
       bgGradient: "from-lime-600 to-lime-800",
-      imageUrl: "/images/leadership/kenneth.jpg"
+      imageUrl: "/images/leadership/kenneth.jpeg"
     },
     { 
       name: "Uwa Igunbor", 
       title: "Welfare/Publicity Secretary",
       bgGradient: "from-emerald-600 to-emerald-800",
-      imageUrl: "/images/leadership/uwa.jpg"
+      imageUrl: "/images/leadership/uwa.jpeg"
     }
   ];
 
@@ -312,8 +312,22 @@ function LeadershipSection() {
         <div className="grid md:grid-cols-5 gap-6">
           {executives.map((exec, idx) => (
             <div key={idx} className="text-center">
-              <div className={`w-32 h-32 mx-auto mb-6 rounded-full border-2 border-gold flex items-center justify-center text-6xl font-bold overflow-hidden bg-gradient-to-br ${exec.bgGradient}`}>
-                <span className="text-ivory drop-shadow-lg">{getInitials(exec.name)}</span>
+              <div className={`w-32 h-32 mx-auto mb-6 rounded-full border-2 border-gold flex items-center justify-center overflow-hidden bg-gradient-to-br ${exec.bgGradient}`}>
+                <img 
+                  src={exec.imageUrl} 
+                  alt={exec.name}
+                  className="w-full h-full object-cover"
+                  onError={(e) => {
+                    // Fallback to initials if image fails to load
+                    e.currentTarget.style.display = 'none';
+                    if (e.currentTarget.nextElementSibling) {
+                      e.currentTarget.nextElementSibling.style.display = 'flex';
+                    }
+                  }}
+                />
+                <span className="text-ivory drop-shadow-lg text-6xl font-bold absolute hidden">
+                  {getInitials(exec.name)}
+                </span>
               </div>
               <h3 className="font-display text-lg font-medium mb-1 text-ivory">{exec.name}</h3>
               <p className="text-gold text-xs font-semibold tracking-widest uppercase">{exec.title}</p>

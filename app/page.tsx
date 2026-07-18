@@ -254,12 +254,42 @@ function StoriesSection() {
 
 // ============ LEADERSHIP SECTION ============
 function LeadershipSection() {
+  const getInitials = (name: string) => {
+    const parts = name.split(' ');
+    return (parts[0]?.[0] + (parts[1]?.[0] || '')).toUpperCase();
+  };
+
   const executives = [
-    { name: "Lawrence Odigie", title: "President", emoji: "👑" },
-    { name: "Osazee Idehen", title: "Vice President", emoji: "🎖️" },
-    { name: "Fredrick Ohai", title: "General Secretary", emoji: "📋" },
-    { name: "Kenneth Osemwegie-Ero", title: "Financial Secretary", emoji: "💰" },
-    { name: "Uwa Igunbor", title: "Welfare/Publicity Secretary", emoji: "🤝" }
+    { 
+      name: "Lawrence Odigie", 
+      title: "President",
+      bgGradient: "from-amber-600 to-amber-800",
+      imageUrl: "/images/leadership/lawrence.jpg"
+    },
+    { 
+      name: "Osazee Idehen", 
+      title: "Vice President",
+      bgGradient: "from-orange-600 to-orange-800",
+      imageUrl: "/images/leadership/osazee.jpg"
+    },
+    { 
+      name: "Fredrick Ohai", 
+      title: "General Secretary",
+      bgGradient: "from-yellow-600 to-yellow-800",
+      imageUrl: "/images/leadership/fredrick.jpg"
+    },
+    { 
+      name: "Kenneth Osemwegie-Ero", 
+      title: "Financial Secretary",
+      bgGradient: "from-lime-600 to-lime-800",
+      imageUrl: "/images/leadership/kenneth.jpg"
+    },
+    { 
+      name: "Uwa Igunbor", 
+      title: "Welfare/Publicity Secretary",
+      bgGradient: "from-emerald-600 to-emerald-800",
+      imageUrl: "/images/leadership/uwa.jpg"
+    }
   ];
 
   return (
@@ -282,10 +312,10 @@ function LeadershipSection() {
         <div className="grid md:grid-cols-5 gap-6">
           {executives.map((exec, idx) => (
             <div key={idx} className="text-center">
-              <div className="w-32 h-32 mx-auto mb-6 rounded-full bg-gradient-to-br from-gold-25 to-gold-12 border-2 border-gold flex items-center justify-center text-6xl">
-                {exec.emoji}
+              <div className={`w-32 h-32 mx-auto mb-6 rounded-full border-2 border-gold flex items-center justify-center text-6xl font-bold overflow-hidden bg-gradient-to-br ${exec.bgGradient}`}>
+                <span className="text-ivory drop-shadow-lg">{getInitials(exec.name)}</span>
               </div>
-              <h3 className="font-display text-lg font-medium mb-1">{exec.name}</h3>
+              <h3 className="font-display text-lg font-medium mb-1 text-ivory">{exec.name}</h3>
               <p className="text-gold text-xs font-semibold tracking-widest uppercase">{exec.title}</p>
             </div>
           ))}
